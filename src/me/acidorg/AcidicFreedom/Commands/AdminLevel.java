@@ -1,6 +1,6 @@
 package me.acidorg.AcidicFreedom.Commands;
 
-public enum Admin_Level
+public enum AdminLevel
 {
     ALL, OP, SUPER, SENIOR
 }
