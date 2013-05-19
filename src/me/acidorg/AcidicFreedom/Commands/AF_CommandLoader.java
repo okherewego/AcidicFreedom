@@ -1,4 +1,4 @@
-package me.StevenLawson.TotalFreedomMod.Commands;
+package me.acidorg.AcidicFreedom.Commands;
 
 import java.io.IOException;
 import java.security.CodeSource;
@@ -9,9 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-import me.StevenLawson.TotalFreedomMod.TFM_Log;
-import me.StevenLawson.TotalFreedomMod.TFM_Util;
-import me.StevenLawson.TotalFreedomMod.TotalFreedomMod;
+import me.acidorg.AcidicFreedom.*;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandException;
@@ -20,21 +18,21 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.PluginIdentifiableCommand;
 import org.bukkit.plugin.Plugin;
 
-public class TFM_CommandLoader
+public class AF_CommandLoader
 {
-    public static Pattern COMMAND_CLASS_PATTERN = Pattern.compile(TotalFreedomMod.COMMAND_PATH.replace('.', '/') + "/(" + TotalFreedomMod.COMMAND_PREFIX + "[^\\$]+)\\.class");
+    public static Pattern COMMAND_CLASS_PATTERN = Pattern.compile(AcidicFreedom.COMMAND_PATH.replace('.', '/') + "/(" + AcidicFreedom.COMMAND_PREFIX + "[^\\$]+)\\.class");
     private List<TFM_CommandInfo> commandList = null;
 
-    private TFM_CommandLoader()
+    private AF_CommandLoader()
     {
     }
 
     public void scan()
     {
-        CommandMap commandMap = TFM_Util.getField(Bukkit.getServer().getPluginManager(), "commandMap");
+        CommandMap commandMap = AF_Util.getField(Bukkit.getServer().getPluginManager(), "commandMap");
         if (commandMap == null)
         {
-            TFM_Log.severe("Error loading command map.");
+            AF_Log.severe("Error loading command map.");
             return;
         }
 
@@ -59,7 +57,7 @@ public class TFM_CommandLoader
                     break;
             }
             TFM_DynamicCommand dynamicCommand = new TFM_DynamicCommand(commandInfo.getCommandName(), description, commandInfo.getUsage(), commandInfo.getAliases());
-            commandMap.register(TotalFreedomMod.plugin.getDescription().getName(), dynamicCommand);
+            commandMap.register(AcidicFreedom.plugin.getDescription().getName(), dynamicCommand);
         }
     }
 
@@ -69,7 +67,7 @@ public class TFM_CommandLoader
 
         try
         {
-            CodeSource codeSource = TotalFreedomMod.class.getProtectionDomain().getCodeSource();
+            CodeSource codeSource = AcidicFreedom.class.getProtectionDomain().getCodeSource();
             if (codeSource != null)
             {
                 ZipInputStream zip = new ZipInputStream(codeSource.getLocation().openStream());
@@ -82,7 +80,7 @@ public class TFM_CommandLoader
                     {
                         try
                         {
-                            Class<?> commandClass = Class.forName(TotalFreedomMod.COMMAND_PATH + "." + matcher.group(1));
+                            Class<?> commandClass = Class.forName(AcidicFreedom.COMMAND_PATH + "." + matcher.group(1));
 
                             CommandPermissions commandPermissions = (CommandPermissions) commandClass.getAnnotation(CommandPermissions.class);
                             CommandParameters commandParameters = (CommandParameters) commandClass.getAnnotation(CommandParameters.class);
@@ -104,7 +102,7 @@ public class TFM_CommandLoader
                         }
                         catch (ClassNotFoundException ex)
                         {
-                            TFM_Log.severe(ex);
+                            AF_Log.severe(ex);
                         }
                     }
                 }
@@ -112,7 +110,7 @@ public class TFM_CommandLoader
         }
         catch (IOException ex)
         {
-            TFM_Log.severe(ex);
+            AF_Log.severe(ex);
         }
 
         return commandList;
@@ -237,17 +235,17 @@ public class TFM_CommandLoader
         @Override
         public Plugin getPlugin()
         {
-            return TotalFreedomMod.plugin;
+            return AcidicFreedom.plugin;
         }
     }
 
-    public static TFM_CommandLoader getInstance()
+    public static AF_CommandLoader getInstance()
     {
-        return TFM_CommandScannerHolder.INSTANCE;
+        return AF_CommandScannerHolder.INSTANCE;
     }
 
-    private static class TFM_CommandScannerHolder
+    private static class AF_CommandScannerHolder
     {
-        private static final TFM_CommandLoader INSTANCE = new TFM_CommandLoader();
+        private static final AF_CommandLoader INSTANCE = new AF_CommandLoader();
     }
 }
