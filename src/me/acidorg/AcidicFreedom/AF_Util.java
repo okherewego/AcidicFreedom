@@ -178,6 +178,11 @@ public class AF_Util
             }
         }
         
+        public static boolean isFromHostConsole(String sender_name)
+        {
+            return AcidicFreedom.host_sender_names.contains(sender_name.toLowerCase());
+        }
+        
         public static List<String> removeDuplicates(List<String> old_list)
         {
             List<String> new_list = new ArrayList<String>();
@@ -255,4 +260,3 @@ public class AF_Util
     }
         
     
-
