@@ -2,7 +2,7 @@ package me.acidorg.AcidicFreedom.Commands;
 
 import java.util.List;
 import me.acidorg.AcidicFreedom.AF_Log;
-import me.acidorg.AcidicFreedom.UserData;
+import me.acidorg.AcidicFreedom.AF_PlayerData;
 import me.acidorg.AcidicFreedom.AF_SuperadminList;
 import me.acidorg.AcidicFreedom.AF_Util;
 import me.acidorg.AcidicFreedom.AcidicFreedom;
