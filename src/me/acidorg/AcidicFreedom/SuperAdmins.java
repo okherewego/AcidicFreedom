@@ -1,4 +1,4 @@
-package net.acidorg.AcidicFreedom;
+package me.acidorg.AcidicFreedom;
 
 import me.StevenLawson.TotalFreedomMod.TFM_SuperadminList;
 import org.bukkit.Bukkit;
