@@ -1,5 +1,7 @@
 package me.acidorg.AcidicFreedom.Commands;
 
+import org.bukkit.ChatColor;
+
 public class CantFindPlayerException extends Exception
 {
     private static final long serialVersionUID = 1L;
