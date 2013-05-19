@@ -147,27 +147,5 @@ public class AcidicFreedom extends JavaPlugin
             AF_Log.severe("Error loading main config: " + ex.getMessage());
         }
     }
-
-    @Deprecated
-    public static List<String> superadmins = new ArrayList<String>();
-    @Deprecated
-    public static List<String> superadmin_ips = new ArrayList<String>();
-
-    public static void loadSuperadminConfig()
-    {
-        try
-        {
-            AF_SuperadminList.backupSavedList();
-            AF_SuperadminList.loadSuperadminList();
-
-            superadmins = AF_SuperadminList.getSuperadminNames();
-            superadmin_ips = AF_SuperadminList.getSuperadminIPs();
-        }
-        catch (Exception ex)
-        {
-            AF_Log.severe("Error loading superadmin list: " + ex.getMessage());
-        }
-    }
-    
-
 }
+
