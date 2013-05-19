@@ -1,5 +1,6 @@
 package me.acidorg.AcidicFreedom;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,18 +15,28 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class AcidicFreedom extends JavaPlugin
 {
-<<<<<<< HEAD
-	private static final Logger log = Logger.getLogger("Minecraft");
-=======
     private static final Logger log = Logger.getLogger("Minecraft");
->>>>>>> b01ccb50a054e124e849139dbb84ed1732856c6a
 	
 	public static final String COMMAND_PATH = "me.acidorg.AcidicFreedom.Commands";
     public static final String COMMAND_PREFIX = "Command_";
+    public static final String SUPERADMIN_FILE = "superadmin.yml";
+    
+    public static String pluginVersion = "";
+    public static String buildNumber = "";
+    public static String buildDate = "";
+    public static String pluginName = "";
+
+    public static AcidicFreedom plugin = null;
+    public static File plugin_file = null;
     
     @Override
     public void onEnable()
     {
+    	AcidicFreedom.plugin = this;
+    	AcidicFreedom.plugin_file = getFile();
+
+    	AcidicFreedom.pluginName = this.getDescription().getName();
+    	
     	log.log(Level.INFO, "AcidicFreedom has been enabled! yay!");
     }
     
