@@ -3,7 +3,7 @@ package me.acidorg.AcidicFreedom.Commands;
 import java.util.List;
 import me.acidorg.AcidicFreedom.AF_Log;
 import me.acidorg.AcidicFreedom.UserInfo;
-import me.acidorg.AcidicFreedom.AF_SuperadminList;
+import me.acidorg.AcidicFreedom.SuperAdmin;
 import me.acidorg.AcidicFreedom.AF_Util;
 import me.acidorg.AcidicFreedom.AcidicFreedom;
 import org.bukkit.ChatColor;
@@ -62,11 +62,11 @@ public abstract class AF_Command
         CommandPermissions permissions = commandClass.getAnnotation(CommandPermissions.class);
         if (permissions != null)
         {
-            boolean is_super = AF_SuperadminList.isUserSuperadmin(this.commandSender);
+            boolean is_super = TFM_SuperadminList.isUserSuperadmin(this.commandSender);
             boolean is_senior = false;
             if (is_super)
             {
-                is_senior = AF_SuperadminList.isSeniorAdmin(this.commandSender);
+                is_senior = TFM_SuperadminList.isSeniorAdmin(this.commandSender);
             }
 
             AdminLevel level = permissions.level();
