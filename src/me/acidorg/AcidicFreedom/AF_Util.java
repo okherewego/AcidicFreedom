@@ -148,12 +148,6 @@ public class AF_Util
                 }
             }
         }
-
-        @Deprecated
-        public static boolean isUserSuperadmin(CommandSender user)
-        {
-            return AF_SuperadminList.isUserSuperadmin(user);
-        }
         
         public static boolean deleteFolder(File file)
         {
