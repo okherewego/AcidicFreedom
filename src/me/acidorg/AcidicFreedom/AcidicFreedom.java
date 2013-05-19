@@ -14,7 +14,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class AcidicFreedom extends JavaPlugin
 {
+<<<<<<< HEAD
 	private static final Logger log = Logger.getLogger("Minecraft");
+=======
+    private static final Logger log = Logger.getLogger("Minecraft");
+>>>>>>> b01ccb50a054e124e849139dbb84ed1732856c6a
 	
 	public static final String COMMAND_PATH = "me.acidorg.AcidicFreedom.Commands";
     public static final String COMMAND_PREFIX = "Command_";
