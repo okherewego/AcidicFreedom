@@ -23,7 +23,7 @@ public class AcidicFreedom extends JavaPlugin
 {
     private static final Logger log = Logger.getLogger("Minecraft");
 	
-	public static final String COMMAND_PATH = "me.acidorg.AcidicFreedom.Commands";
+    public static final String COMMAND_PATH = "me.acidorg.AcidicFreedom.Commands";
     public static final String COMMAND_PREFIX = "Command_";
     public static final String SUPERADMIN_FILE = "superadmin.yml";
     public static final String CONFIG_FILE = "config.yml";
