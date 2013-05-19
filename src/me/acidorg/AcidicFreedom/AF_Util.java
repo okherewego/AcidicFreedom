@@ -1,9 +1,7 @@
 package me.acidorg.AcidicFreedom;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+import java.lang.reflect.Field;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -180,6 +178,11 @@ public class AF_Util
             }
         }
         
+        public static boolean isFromHostConsole(String sender_name)
+        {
+            return AcidicFreedom.host_sender_names.contains(sender_name.toLowerCase());
+        }
+        
         public static List<String> removeDuplicates(List<String> old_list)
         {
             List<String> new_list = new ArrayList<String>();
@@ -231,5 +234,29 @@ public class AF_Util
             return is_match;
         }
         
-        
+        //getField: Borrowed from WorldEdit
+        @SuppressWarnings("unchecked")
+        public static <T> T getField(Object from, String name)
+        {
+            Class<?> checkClass = from.getClass();
+            do
+            {
+                try
+                {
+                    Field field = checkClass.getDeclaredField(name);
+                    field.setAccessible(true);
+                    return (T) field.get(from);
+                }
+                catch (NoSuchFieldException ex)
+                {
+                }
+                catch (IllegalAccessException ex)
+                {
+                }
+            }
+            while (checkClass.getSuperclass() != Object.class && ((checkClass = checkClass.getSuperclass()) != null));
+            return null;
+        }
     }
+        
+    
