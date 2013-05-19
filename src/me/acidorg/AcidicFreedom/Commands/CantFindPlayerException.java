@@ -2,15 +2,15 @@ package me.acidorg.AcidicFreedom.Commands;
 
 public class CantFindPlayerException extends Exception
 {
+    private static final long serialVersionUID = 1L;
+
     public CantFindPlayerException()
     {
-        super("Can't find player.");
+        super(ChatColor.GRAY + "Can't find player.");
     }
 
     public CantFindPlayerException(String msg)
     {
-        super("Can't find player: " + msg);
+        super(ChatColor.GRAY + "Can't find player: " + msg);
     }
-
-
 }
