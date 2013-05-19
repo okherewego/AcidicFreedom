@@ -1,4 +1,4 @@
-AcidFreedom
+AcidicFreedom
 ===========
 
-AcidFreedom! Add-on for the Total Freedom Server! totalfreedom.me
+AcidicFreedom! Add-on for the Total Freedom Server! totalfreedom.me
