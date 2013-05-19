@@ -20,12 +20,3 @@ public class AcidicFreedom extends JavaPlugin
     {
         log.info("AcidicFreedom has been disabled! :(");
     }
-    
-    public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args)
-    {
-        Player player = (Player) sender;
-    	
-		return false;
-    }
-
-}
