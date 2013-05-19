@@ -2,5 +2,5 @@ package me.acidorg.AcidicFreedom.Commands;
 
 public enum AdminLevel
 {
-    ALL, OP, SUPER, SENIOR
+    AdminLevel.ALL, AdminLevel.OP, AdminLevel.SUPER, AdminLevel.SENIOR
 }
