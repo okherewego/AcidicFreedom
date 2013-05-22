@@ -1,3 +1,3 @@
-AcidicFreedom's Old Repo
+AcidicFreedom's Fork By Wilee
 =============
-AcidicFreedom is no longer on github. BUT! You can check out github.com/Wilee999/AcidicFreedom for a fork.
+This is AcidicFreedom's fork.
